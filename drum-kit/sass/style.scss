@@ -2,12 +2,50 @@ html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: url('../assets/concert.jpg') bottom center;
+    background: url('../assets/background/concert1.jpg') bottom center;
     background-size: cover;
     height: 100%;
+    font-family: sans-serif;
+    user-select: none;  
 }
 
-.keys {
+.notes {
     margin: 0 auto;
-    width: 1440px;
+    width: 1140px;
+    height: 95vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.note {
+    width: 100px;
+    height: 80px;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 3px solid #000;
+    border-radius: 10%;
+    align-items: center;
+    justify-content: center;
+    transition: 0.1s all;
+    &_text {
+        text-align: center;
+        font-size: 30px;
+        font-weight: bold;
+        color: #fff;
+        text-transform: uppercase;
+        line-height: 20px;
+    }
+    span {
+        font-size: 13px;
+        color: sandybrown;
+    }
+    &:hover {
+        cursor: pointer;
+    }
+    &_active {
+        transform: scale(110%, 110%);
+        border-color: sandybrown;
+        box-shadow: 0 0 20px sandybrown;
+    }
 }
