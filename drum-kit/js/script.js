@@ -1,6 +1,15 @@
 const notes = document.querySelector('.notes')
-      keys = notes.querySelectorAll('.note');
-let key = '';
+      keys = notes.querySelectorAll('.note'),
+      fullScreenBtn = document.querySelector('.fullscreen'),
+      change = document.querySelector('.change_background'),
+      html = document.documentElement;
+let key,
+    count = 1;
+
+fullScreenBtn.addEventListener('click', () => {
+    openFullscreen(html);
+    closeFullscreen();
+});
 
 keys.forEach(item => {
     item.addEventListener('mousedown', () => {
@@ -27,11 +36,38 @@ document.addEventListener('keyup', (e) => {
     key.classList.remove('note_active');
 });
 
-
+change.addEventListener('click', () => {
+    if (count == 3) {
+        count = 1;
+    } else {
+        count++;
+    }
+    html.style.background = `url("../assets/background/concert${count}.jpg") bottom center / cover`;
+});
 
 const audioPlay = (item) => {
     let audio = new Audio();
     span = item.querySelector('span');
     audio.src = `assets/sounds/${span.textContent}.wav`; 
     audio.play();
+}
+
+const openFullscreen = (elem) => {
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) { 
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { 
+      elem.msRequestFullscreen();
+    }
+}
+
+const closeFullscreen = () => {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) { 
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) { 
+      document.msExitFullscreen();
+    }
 }
