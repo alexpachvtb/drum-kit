@@ -69,9 +69,8 @@ html {
     }
 }
 
-.change_background {
+.btn {
     position: absolute;
-    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
     text-transform: uppercase;
@@ -79,4 +78,10 @@ html {
     background-color: sandybrown;
     cursor: pointer;
     border: none;
+    &_background {
+        bottom: 10px;
+    }
+    &_play {
+        bottom: 40px;
+    }
 }
