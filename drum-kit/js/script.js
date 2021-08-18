@@ -42,7 +42,7 @@ change.addEventListener('click', () => {
     } else {
         count++;
     }
-    html.style.background = `url("../assets/background/concert${count}.jpg") bottom center / cover`;
+    html.style.background = `url("assets/background/concert${count}.jpg") bottom center / cover`;
 });
 
 const audioPlay = (item) => {
